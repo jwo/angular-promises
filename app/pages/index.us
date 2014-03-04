@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= pkg.name %></title>
+
+    <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div ng-app='greenvilleJS' ng-controller="wayCoolCtrl" -init="initMap()">
+            <div class="row">
+              <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="address"/>
+              </div>
+              <div class="col-sm-2">
+                <button ng-click="find()" class="btn btn-primary">Find</button>
+              </div>
+            </div>
+            <div class="panel">
+              <google-map center="mapCenter()"  zoom="map.zoom">
+              <markers models="mapMarkers" coords="'self'"></markers>
+              </google-map>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   <script type="text/javascript" src="<%= js %>"></script>
+  </body>
+</html>

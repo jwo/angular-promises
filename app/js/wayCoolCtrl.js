@@ -1,4 +1,4 @@
-greenvilleJS.controller('wayCoolCtrl', ['$scope', '$q', '$timeout', function ($scope, $q, $timeout) {
+greenvilleJS.controller('wayCoolCtrl', ['$scope', '$q',  function ($scope, $q) {
   $scope.address = "";
   $scope.mapMarkers= [];
   $scope.zoom = 8;
@@ -17,25 +17,36 @@ greenvilleJS.controller('wayCoolCtrl', ['$scope', '$q', '$timeout', function ($s
   };
 
   $scope.initMap = function() {
-    // Set map.center to $scope.currentPosition() ?
+    $scope.currentPosition().then(function(center){
+      $scope.map.center = center;
+    });
   };
 
   $scope.find = function() {
-    // set map.center = geocode($scope.address) 's coords
-    // set mapMarkers = [newCoords]
-  }
+    geoCode($scope.address).then(function(newCoords) {
+      $scope.map.center = newCoords;
+      $scope.mapMarkers = new Array(newCoords);
+    });
+  };
 
   geoCode = function(address) {
+    var deferred = $q.defer();
     $scope.geoCoder.geocode({address: address}, function(results, status) {
-      return { latitude:  results[0].geometry.location.d,
-               longitude: results[0].geometry.location.e});
+      deferred.resolve( { latitude:  results[0].geometry.location.d,
+                          longitude: results[0].geometry.location.e});
+    });
+    return deferred.promise;
   };
 
   $scope.currentPosition = function() {
+    var deferred = $q.defer();
     navigator.geolocation.getCurrentPosition( function (position) {
-      return position.coords;
+      deferred.resolve(position.coords);
     });
+    return deferred.promise;
   };
+
+
 }
 ]);
 

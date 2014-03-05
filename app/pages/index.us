@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div ng-app='greenvilleJS' ng-controller="wayCoolCtrl" -init="initMap()">
+          <div ng-app='greenvilleJS' ng-controller="wayCoolCtrl" ng-init="initMap()">
             <div class="row">
               <div class="col-sm-10">
                 <input type="text" class="form-control" ng-model="address"/>

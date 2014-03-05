@@ -17,6 +17,10 @@ Working Demo: http://greenville-maps.herokuapp.com/
 
 --------------------------
 
+Powered by [LinemanJS](http://linemanjs.com/), an awesome way to create 1st Class web applications
+
+--------------------------
+
 ### Resources
 
 0. http://docs.angularjs.org/api/ng/service/$q

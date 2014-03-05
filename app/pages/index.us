@@ -29,6 +29,10 @@
               <markers models="mapMarkers" coords="'self'"></markers>
               </google-map>
             </div>
+            <p class="muted">Powered by <a
+              href="http://linemanjs.com/">LinemanJS, an awesome way to create
+              1st Class web applications</a>
+            </p>
           </div>
         </div>
       </div>

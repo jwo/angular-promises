@@ -13,6 +13,10 @@ Then browse http://0.0.0.0:8000
 
 --------------------------
 
+Working Demo: http://greenville-maps.herokuapp.com/
+
+--------------------------
+
 ### Resources
 
 0. http://docs.angularjs.org/api/ng/service/$q
